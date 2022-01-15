@@ -1,4 +1,4 @@
-POST {{ url }}/clients
+POST {{ baseUrl }}/clients
 Content-Type: application/json
 
 {
