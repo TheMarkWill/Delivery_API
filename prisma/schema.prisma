@@ -11,28 +11,28 @@ datasource db {
 }
 
 model Deliveryman {
-  id       String @id @default(cuid())
+  id       String @id @default(uuid()) @db.Uuid
   username String @unique
   password String
 
-  @@map("deliveryman")
   Deliveries Deliveries[]
+  @@map("deliveryman")
 }
 
 model Clients {
-  id       String @id @default(cuid())
+  id       String @id @default(uuid()) @db.Uuid
   username String @unique
   password String
 
-  @@map("clients")
   Deliveries Deliveries[]
+  @@map("clients")
 }
 
 model Deliveries {
-  id             String      @id @default(cuid())
-  id_client      String
+  id             String      @id @default(uuid()) @db.Uuid
+  id_client      String      @db.Uuid
   client         Clients     @relation(fields: [id_client], references: [id])
-  id_deliveryman String
+  id_deliveryman String      @db.Uuid
   deliveryman    Deliveryman @relation(fields: [id_deliveryman], references: [id])
   item_name      String
   created_at     DateTime    @default(now())

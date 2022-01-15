@@ -1,0 +1,9 @@
+POST {{ url }}/clients
+Content-Type: application/json
+
+{
+  "username": "marconwillian_1",
+  "password": "12345"
+}
+
+###
