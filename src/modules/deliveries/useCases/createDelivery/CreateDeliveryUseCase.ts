@@ -15,7 +15,7 @@ class CreateDeliveryUseCase {
       data: {
         item_name,
         id_client,
-        id_deliveryman: '52ddf316-e443-411c-9aa1-3ad5a9369714'
+        id_deliveryman: 'e39388d4-6d32-41fc-ae1f-0ca8e2b68c63'
       }
     });
 
