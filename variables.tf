@@ -42,6 +42,10 @@ variable "ENV_TOKEN_DELIVERYMAN_JWT" {
   default = ""
 }
 
-variable "ENV_NEW_RELIC_TOKEN" {
+variable "ENV_NEW_RELIC_LICENSE_KEY" {
+  default = ""
+}
+
+variable "ENV_NEW_RELIC_APP_NAME" {
   default = ""
 }

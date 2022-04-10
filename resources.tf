@@ -47,8 +47,20 @@ resource "google_cloud_run_service" "create_cloud_run" {
           value = var.ENV_TOKEN_DELIVERYMAN_JWT
         }
         env {
-          name  = "NEW_RELIC_TOKEN"
-          value = var.ENV_NEW_RELIC_TOKEN
+          name  = "NEW_RELIC_LICENSE_KEY"
+          value = var.ENV_NEW_RELIC_LICENSE_KEY
+        }
+        env {
+          name  = "NEW_RELIC_LICENSE_KEY"
+          value = var.ENV_NEW_RELIC_LICENSE_KEY
+        }
+        env {
+          name  = "NEW_RELIC_APP_NAME"
+          value = var.ENV_NEW_RELIC_APP_NAME
+        }
+        env {
+          name  = "NEW_RELIC_DISTRIBUTED_TRACING_ENABLED"
+          value = true
         }
       }
     }
