@@ -375,11 +375,81 @@
           }
         }
       }
+    },
+    "/delivery/{ idDelivery }/updateDeliveryman": {
+      "put": {
+        "tags": [
+          "Delivery"
+        ],
+        "summary": "Update deliveryman from delivery",
+        "description": "Update deliveryman from delivery",
+        "parameters": [{
+          "name": "idDelivery",
+          "in": "path",
+          "description": "Delivery ID",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "security": [
+          {
+            "BearerTokenDeliveryman": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "id_client": {
+                      "type": "string"
+                    },
+                    "id_deliveryman": {
+                      "type": "string"
+                    },
+                    "item_name": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "end_at": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "id": "1d3f6d69-5a40-4080-a037-5cc696972524",
+                    "id_client": "4e8bd6c4-6e7c-4ceb-9428-90fd1e4ecab3",
+                    "id_deliveryman": null,
+                    "item_name": "Coca Cola",
+                    "created_at": "2022-04-10T02:29:52.140Z",
+                    "end_at": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "securitySchemes": {
       "BearerToken": {
+        "description": "Client JTW Bearer Token",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "BearerTokenDeliveryman": {
+        "description": "Deliveryman JTW Bearer Token",
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
