@@ -17,7 +17,9 @@
   "paths": {
     "/client": {
       "post": {
-        "tags": ["Client"],
+        "tags": [
+          "Client"
+        ],
         "summary": "Create a client",
         "description": "Create a new client",
         "requestBody": {
@@ -68,7 +70,10 @@
     },
     "/client/authenticate": {
       "post": {
-        "tags": ["Client", "Authentication"],
+        "tags": [
+          "Client",
+          "Authentication"
+        ],
         "summary": "Create a session to client",
         "description": "Create a session to client",
         "requestBody": {
@@ -131,7 +136,9 @@
     },
     "/deliveryman": {
       "post": {
-        "tags": ["Deliveryman"],
+        "tags": [
+          "Deliveryman"
+        ],
         "summary": "Create a deliveryman",
         "description": "Create a new deliveryman",
         "requestBody": {
@@ -182,7 +189,10 @@
     },
     "/deliveryman/authenticate": {
       "post": {
-        "tags": ["Deliveryman", "Authentication"],
+        "tags": [
+          "Deliveryman",
+          "Authentication"
+        ],
         "summary": "Create a session to deliveryman",
         "description": "Create a session to deliveryman",
         "requestBody": {
@@ -245,9 +255,16 @@
     },
     "/delivery": {
       "post": {
-        "tags": ["Delivery"],
+        "tags": [
+          "Delivery"
+        ],
         "summary": "Create a delivery",
         "description": "Create a delivery",
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -313,6 +330,13 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "BearerToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "ok": {
         "type": "object",
@@ -328,8 +352,14 @@
     }
   },
   "tags": [
-    {"name": "Authentication"},
-    {"name": "Client"},
-    {"name": "Deliveryman"}
+    {
+      "name": "Authentication"
+    },
+    {
+      "name": "Client"
+    },
+    {
+      "name": "Deliveryman"
+    }
   ]
 }

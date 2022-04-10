@@ -4,7 +4,8 @@ import { CreateDeliveryUseCase } from './CreateDeliveryUseCase';
 
 class CreateDeliveryController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { item_name, id_client } = request.body;
+    const { item_name } = request.body;
+    const { id_client } = request;
 
     const createDeliveryUseCase = new CreateDeliveryUseCase();
 
