@@ -257,13 +257,13 @@
                   "item_name": {
                     "type": "string"
                   },
-                  "delivery_id": {
+                  "id_client": {
                     "type": "string"
                   }
                 },
                 "example": {
                   "item_name": "Coca Cola",
-                  "password": "e7b573a1-372b-4738-b858-3f2958c2176b"
+                  "id_client": "e7b573a1-372b-4738-b858-3f2958c2176b"
                 }
               }
             }

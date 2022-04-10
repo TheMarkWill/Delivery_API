@@ -14,7 +14,8 @@ class CreateDeliveryUseCase {
     const delivery = await prisma.deliveries.create({
       data: {
         item_name,
-        id_client
+        id_client,
+        id_deliveryman: '52ddf316-e443-411c-9aa1-3ad5a9369714'
       }
     });
 
