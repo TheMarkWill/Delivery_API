@@ -7,6 +7,7 @@ declare global {
       DATABASE_URL: string;
       TOKEN_CLIENT_JWT: string;
       TOKEN_DELIVERYMAN_JWT: string;
+      NEW_RELIC_TOKEN:  string
     }
   }
 }

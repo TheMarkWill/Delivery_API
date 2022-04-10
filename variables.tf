@@ -41,3 +41,7 @@ variable "ENV_TOKEN_CLIENT_JWT" {
 variable "ENV_TOKEN_DELIVERYMAN_JWT" {
   default = ""
 }
+
+variable "ENV_NEW_RELIC_TOKEN" {
+  default = ""
+}

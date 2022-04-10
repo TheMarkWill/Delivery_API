@@ -46,6 +46,10 @@ resource "google_cloud_run_service" "create_cloud_run" {
           name  = "TOKEN_DELIVERYMAN_JWT"
           value = var.ENV_TOKEN_DELIVERYMAN_JWT
         }
+        env {
+          name  = "NEW_RELIC_TOKEN"
+          value = var.ENV_NEW_RELIC_TOKEN
+        }
       }
     }
 
