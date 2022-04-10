@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { NextFunction, Request, Response } from 'express';
+
 import 'newrelic';
 import 'express-async-errors';
 import { routes } from './routes';
