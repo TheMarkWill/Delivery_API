@@ -14,6 +14,7 @@ class FindAllDeliveriesUseCase {
         id: id_client
       },
       select: {
+        id: true,
         username: true,
         deliveries: true
       }
