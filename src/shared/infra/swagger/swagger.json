@@ -262,7 +262,7 @@
         "description": "Create a delivery",
         "security": [
           {
-            "BearerToken": []
+            "BearerClientToken": []
           }
         ],
         "requestBody": {
@@ -442,7 +442,7 @@
   },
   "components": {
     "securitySchemes": {
-      "BearerToken": {
+      "BearerClientToken": {
         "description": "Client JTW Bearer Token",
         "type": "http",
         "scheme": "bearer",
