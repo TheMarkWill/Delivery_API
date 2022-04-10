@@ -10,6 +10,7 @@ import { FindAllDeliveriesController } from './modules/clients/useCases/findAllD
 import { CreateDeliveryController } from './modules/deliveries/useCases/createDelivery/CreateDeliveryController';
 import { FindAllAvailableController } from './modules/deliveries/useCases/findAllAvailable/FindAllAvailableController';
 import { UpdateDeliverymanController } from './modules/deliveries/useCases/updateDeliveryman/UpdateDeliverymanController';
+import { UpdateEndDateController } from './modules/deliveries/useCases/updateEndDate/UpdateEndDateController';
 import { CreateDeliverymanController } from './modules/deliveryman/useCases/createDeliveryman/CreateDeliverymanController';
 import { FindAllDeliveriesDeliverymanController } from './modules/deliveryman/useCases/findAllDeliveries/FindAllDeliveriesDeliverymanController';
 import swaggerFile from './shared/infra/swagger/swagger.json';
@@ -29,6 +30,7 @@ const findAllDeliveriesDeliverymanController =
 const findAllAvailableController = new FindAllAvailableController();
 const createDeliveryController = new CreateDeliveryController();
 const updateDeliverymanController = new UpdateDeliverymanController();
+const updateEndDateController = new UpdateEndDateController();
 
 routes.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
@@ -66,6 +68,11 @@ routes.put(
   '/delivery/:id_delivery/updateDeliveryman/',
   ensureAuthenticateDeliveryman,
   updateDeliverymanController.handle
+);
+routes.put(
+  '/delivery/:id_delivery/updateEndDate',
+  ensureAuthenticateDeliveryman,
+  updateEndDateController.handle
 );
 
 export { routes };
