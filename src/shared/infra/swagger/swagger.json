@@ -242,6 +242,51 @@
           }
         }
       }
+    },
+    "/delivery": {
+      "post": {
+        "tags": ["Delivery"],
+        "summary": "Create a delivery",
+        "description": "Create a delivery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_name": {
+                    "type": "string"
+                  },
+                  "delivery_id": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "item_name": "Coca Cola",
+                  "password": "e7b573a1-372b-4738-b858-3f2958c2176b"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
