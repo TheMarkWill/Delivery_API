@@ -2,22 +2,22 @@ FROM node:12-alpine
 
 ARG CACHEBUST=1
 
-RUN mkdir -p /home/node/bethehero/node_modules && mkdir -p /home/node/bethehero/dist && chown -R node:node /home/node/bethehero
+RUN mkdir -p /home/node/delivery/node_modules && mkdir -p /home/node/delivery/dist && chown -R node:node /home/node/delivery
 
-WORKDIR /home/node/bethehero
+WORKDIR /home/node/delivery
 
 COPY --chown=node:node ./package.json ./yarn.* ./
 
 USER node
 
-RUN yarn
+RUN npm install
 
 COPY --chown=node:node ./ .
 
-RUN yarn build
+RUN npm run build
 
-RUN yarn prisma generate
+RUN npx prisma generate
 
 EXPOSE 3000
 
-CMD ["yarn", "server"]
+CMD ["npm", "run", "server"]
