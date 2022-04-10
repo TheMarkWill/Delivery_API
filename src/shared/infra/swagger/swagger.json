@@ -10,6 +10,10 @@
   },
   "servers": [
     {
+      "url": "https://api.delivery.projects.themark.dev",
+      "description": "Production Server"
+    },
+    {
       "url": "http://localhost:3000",
       "description": "Local Server"
     }
