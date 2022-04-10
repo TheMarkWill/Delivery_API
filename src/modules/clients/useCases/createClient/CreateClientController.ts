@@ -1,19 +1,19 @@
-import {Request, Response} from "express";
-import {CreateClientUseCase} from "./CreateClientUseCase";
+import { Request, Response } from 'express';
+
+import { CreateClientUseCase } from './CreateClientUseCase';
 
 class CreateClientController {
-    async handle(request: Request, response: Response){
+  async handle(request: Request, response: Response): Promise<Response> {
+    const { username, password } = request.body;
 
-        const { username, password } = request.body;
+    const createClientUseCase = new CreateClientUseCase();
+    const result = await createClientUseCase.execute({
+      username,
+      password
+    });
 
-        const createClientUseCase = new CreateClientUseCase();
-        const result = await createClientUseCase.execute({
-            username,
-            password,
-        });
-
-        return response.json(result);
-    }
+    return response.status(201).json(result);
+  }
 }
 
-export { CreateClientController }
+export { CreateClientController };
