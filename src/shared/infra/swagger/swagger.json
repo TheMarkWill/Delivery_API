@@ -347,6 +347,100 @@
         }
       }
     },
+    "/deliveryman/deliveries/": {
+      "get": {
+        "tags": [
+          "Deliveryman",
+          "Delivery"
+        ],
+        "summary": "Get all deliveries from deliveryman",
+        "description": "Get all deliveries",
+        "security": [
+          {
+            "BearerTokenDeliveryman": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "username": "themark",
+                      "deliveries": [
+                        {
+                          "id": "0ff32022-8209-424f-b84b-fcd4a0c10859",
+                          "id_client": "93e80fa7-92db-4b0a-a9cb-147a98a5ae03",
+                          "id_deliveryman": null,
+                          "item_name": "Coca Cola",
+                          "created_at": "2022-04-10T02:48:13.396Z",
+                          "end_at": null
+                        }
+                      ]
+                    }
+                  ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "username": {
+                        "type": "string"
+                      },
+                      "deliveries": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "id_client": {
+                              "type": "string"
+                            },
+                            "id_deliveryman": {
+                              "type": "string"
+                            },
+                            "item_name": {
+                              "type": "string"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "end_at": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "Invalid token"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/delivery": {
       "post": {
         "tags": [

@@ -11,6 +11,7 @@ import { CreateDeliveryController } from './modules/deliveries/useCases/createDe
 import { FindAllAvailableController } from './modules/deliveries/useCases/findAllAvailable/FindAllAvailableController';
 import { UpdateDeliverymanController } from './modules/deliveries/useCases/updateDeliveryman/UpdateDeliverymanController';
 import { CreateDeliverymanController } from './modules/deliveryman/useCases/createDeliveryman/CreateDeliverymanController';
+import { FindAllDeliveriesDeliverymanController } from './modules/deliveryman/useCases/findAllDeliveries/FindAllDeliveriesDeliverymanController';
 import swaggerFile from './shared/infra/swagger/swagger.json';
 
 const routes = Router();
@@ -18,9 +19,12 @@ const routes = Router();
 const createClientController = new CreateClientController();
 const findAllDeliveriesController = new FindAllDeliveriesController();
 const authenticateClientController = new AuthenticateClientController();
+
 const createDeliverymanController = new CreateDeliverymanController();
 const authenticateDeliverymanController =
   new AuthenticateDeliverymanController();
+const findAllDeliveriesDeliverymanController =
+  new FindAllDeliveriesDeliverymanController();
 
 const findAllAvailableController = new FindAllAvailableController();
 const createDeliveryController = new CreateDeliveryController();
@@ -40,6 +44,11 @@ routes.post('/deliveryman/', createDeliverymanController.handle);
 routes.post(
   '/deliveryman/authenticate/',
   authenticateDeliverymanController.handle
+);
+routes.get(
+  '/deliveryman/deliveries',
+  ensureAuthenticateDeliveryman,
+  findAllDeliveriesDeliverymanController.handle
 );
 
 routes.post(
