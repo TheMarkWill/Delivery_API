@@ -2,6 +2,7 @@ import { Router } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
 import { ensureAuthenticateClient } from './middlewares/ensureAuthenticateClient';
+import { ensureAuthenticateDeliveryman } from './middlewares/ensureAuthenticateDeliveryman';
 import { AuthenticateClientController } from './modules/account/useCases/authenticateClient/AuthenticateClientController';
 import { AuthenticateDeliverymanController } from './modules/account/useCases/authenticateDeliveryman/AuthenticateDeliverymanController';
 import { CreateClientController } from './modules/clients/useCases/createClient/CreateClientController';
@@ -32,12 +33,15 @@ routes.post(
   authenticateDeliverymanController.handle
 );
 
-routes.get('/delivery/', findAllAvailableController.handle);
-
 routes.post(
   '/delivery/',
   ensureAuthenticateClient,
   createDeliveryController.handle
+);
+routes.get(
+  '/delivery/available',
+  ensureAuthenticateDeliveryman,
+  findAllAvailableController.handle
 );
 
 export { routes };
