@@ -1,32 +1,30 @@
 name: Production
 on:
   push:
-    paths:
-      - 'server/**'
     branches:
       - 'main'
 env:
   GCP_PROJECT_ID_DEVOPS: ${{ secrets.GCP_PROJECT_ID_DEVOPS }}
-  GCP_IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID_DEVOPS }}/bethehero-api:${{  github.sha }}
+  GCP_IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID_DEVOPS }}/delivery-api:${{  github.sha }}
   GCP_SA_KEY_DEVOPS: ${{ secrets.GCP_SA_KEY_DEVOPS }}
   TF_VAR_gcp_project_id: ${{ secrets.GCP_PROJECT_ID_DEVOPS }}
-  TF_VAR_gcp_project_image: gcr.io/${{ secrets.GCP_PROJECT_ID_DEVOPS }}/bethehero-api:${{  github.sha }}
+  TF_VAR_gcp_project_image: gcr.io/${{ secrets.GCP_PROJECT_ID_DEVOPS }}/delivery-api:${{  github.sha }}
   TF_VAR_gcp_key_file: ${{ secrets.GCP_SA_KEY_DEVOPS }}
-  TF_VAR_service_name: bethehero-api
+  TF_VAR_service_name: delivery-api
   TF_VAR_gcp_region: us-east4
   TF_VAR_gcp_zone: us-east4-a
-  TF_VAR_domain_service: api.bethehero.projects.themark.dev
+  TF_VAR_domain_service: api.delivery.projects.themark.dev
   TF_VAR_NODE_ENV: production
-  TF_VAR_ENV_SENTRY_DSN: ${{ secrets.ENV_SENTRY_DSN }}
   TF_VAR_ENV_DATABASE_URL: ${{ secrets.ENV_DATABASE_URL }}
-
+  TF_VAR_ENV_TOKEN_CLIENT_JWT: ${{ secrets.ENV_TOKEN_CLIENT_JWT }}
+  TF_VAR_ENV_TOKEN_DELIVERYMAN_JWT: ${{ secrets.ENV_TOKEN_DELIVERYMAN_JWT }}
 jobs:
   build:
     name: 'Build'
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./server
+        working-directory: .
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -56,7 +54,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./server
+        working-directory: .
     steps:
     - name: Checkout
       uses: actions/checkout@v2

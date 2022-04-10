@@ -30,10 +30,14 @@ variable "NODE_ENV" {
   default = "no-production"
 }
 
-variable "ENV_SENTRY_DSN" {
+variable "ENV_DATABASE_URL" {
   default = ""
 }
 
-variable "ENV_DATABASE_URL" {
+variable "ENV_TOKEN_CLIENT_JWT" {
+  default = ""
+}
+
+variable "ENV_TOKEN_DELIVERYMAN_JWT" {
   default = ""
 }

@@ -26,7 +26,7 @@ class AuthenticateDeliverymanUseCase {
       throw new Error('Username or password invalid!');
     }
 
-    const token = sign({ username }, '*(&b123b12y798hZZ3an19n6123', {
+    const token = sign({ username }, process.env.TOKEN_DELIVERYMAN_JWT, {
       subject: deliveryman.id,
       expiresIn: '1d'
     });

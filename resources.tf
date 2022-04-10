@@ -31,16 +31,20 @@ resource "google_cloud_run_service" "create_cloud_run" {
         }
 
         env {
-          name  = "NODE_END"
+          name  = "NODE_ENV"
           value = var.NODE_ENV
-        }
-        env {
-          name  = "SENTRY_DSN"
-          value = var.ENV_SENTRY_DSN
         }
         env {
           name  = "DATABASE_URL"
           value = var.ENV_DATABASE_URL
+        }
+        env {
+          name  = "TOKEN_CLIENT_JWT"
+          value = var.ENV_TOKEN_CLIENT_JWT
+        }
+        env {
+          name  = "TOKEN_DELIVERYMAN_JWT"
+          value = var.ENV_TOKEN_DELIVERYMAN_JWT
         }
       }
     }

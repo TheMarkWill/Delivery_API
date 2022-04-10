@@ -19,7 +19,7 @@ async function ensureAuthenticateClient(
   const [, token] = authHeader.split(' ');
 
   try {
-    const { sub } = verify(token, '*(&b123b12y798hz3an19n6123') as IPayload;
+    const { sub } = verify(token, process.env.TOKEN_CLIENT_JWT) as IPayload;
 
     request.id_client = sub;
 
