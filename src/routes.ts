@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
-import { AuthenticateClientController } from './modules/account/useCases/authenticateClientUseCase/AuthenticateClientController';
-import { AuthenticateDeliverymanController } from './modules/account/useCases/authenticateDeliverymanUseCase/AuthenticateDeliverymanController';
+import { AuthenticateClientController } from './modules/account/useCases/authenticateClient/AuthenticateClientController';
+import { AuthenticateDeliverymanController } from './modules/account/useCases/authenticateDeliveryman/AuthenticateDeliverymanController';
 import { CreateClientController } from './modules/clients/useCases/createClient/CreateClientController';
 import { CreateDeliveryController } from './modules/deliveryman/useCases/createDeliveryman/CreateDeliverymanController';
 import swaggerFile from './shared/infra/swagger/swagger.json';
