@@ -66,6 +66,69 @@
         }
       }
     },
+    "/client/authenticate": {
+      "post": {
+        "tags": ["Client", "Authentication"],
+        "summary": "Create a session to client",
+        "description": "Create a session to client",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "username": "themark",
+                  "password": "123456"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Username or password invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "Username or password invalid"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/deliveryman": {
       "post": {
         "tags": ["Deliveryman"],
@@ -116,6 +179,69 @@
           }
         }
       }
+    },
+    "/deliveryman/authenticate": {
+      "post": {
+        "tags": ["Deliveryman", "Authentication"],
+        "summary": "Create a session to deliveryman",
+        "description": "Create a session to deliveryman",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "username": "themark",
+                  "password": "123456"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Username or password invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "Username or password invalid"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -132,5 +258,10 @@
         }
       }
     }
-  }
+  },
+  "tags": [
+    {"name": "Authentication"},
+    {"name": "Client"},
+    {"name": "Deliveryman"}
+  ]
 }

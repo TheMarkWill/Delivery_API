@@ -8,7 +8,10 @@ class AuthenticateClientController {
 
     const authenticateClientUseCase = new AuthenticateClientUseCase();
 
-    const result = authenticateClientUseCase.execute({ username, password });
+    const result = await authenticateClientUseCase.execute({
+      username,
+      password
+    });
 
     return response.json(result);
   }

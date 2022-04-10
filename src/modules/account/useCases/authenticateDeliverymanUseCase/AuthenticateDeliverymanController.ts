@@ -8,7 +8,7 @@ class AuthenticateDeliverymanController {
 
     const authenticateDeliverymanUseCase = new AuthenticateDeliverymanUseCase();
 
-    const result = authenticateDeliverymanUseCase.execute({
+    const result = await authenticateDeliverymanUseCase.execute({
       username,
       password
     });
