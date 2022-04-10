@@ -16,6 +16,8 @@ COPY --chown=node:node ./ .
 
 RUN yarn build
 
+RUN yarn prisma generate
+
 EXPOSE 3000
 
 CMD ["yarn", "server"]
